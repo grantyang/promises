@@ -85,7 +85,7 @@ describe('Promisification', function() {
       expect(readFileAndMakeItFunnyAsync(__dirname + '/../files/file_to_read.txt')).to.be.an.instanceOf(Promise);
     });
 
-    xit('should make a funny file available in the `then` block', function(done) {
+    it('should make a funny file available in the `then` block', function(done) {
       readFileAndMakeItFunnyAsync(__dirname + '/../files/file_to_read.txt')
         .then(function(funnyFile) {
           funnyFile.split('\n').forEach(function(line) {
@@ -96,7 +96,7 @@ describe('Promisification', function() {
         .catch(done);
     });
 
-    xit('should make any errors available in the `catch` block', function(done) {
+    it('should make any errors available in the `catch` block', function(done) {
       readFileAndMakeItFunnyAsync(__dirname + '/../files/nonexistent_file.txt')
         .catch(function(err) {
           expect(err.code).to.equal('ENOENT');

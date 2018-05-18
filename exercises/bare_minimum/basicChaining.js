@@ -18,13 +18,11 @@ var github = require('./promisification');
 var fetchProfileAndWriteToFile = function (readFilePath, writeFilePath) {
   return utils.pluckFirstLineFromFileAsync(readFilePath)
     .then((username) => {
-      return github.getGitHubProfileAsync(username)
+      return github.getGitHubProfileAsync(username);
     })
     .then((data) => {
-      console.log(data)
-      console.log(JSON.stringify(data))
       return fs.writeFileSync(writeFilePath, JSON.stringify(data));
-    })
+    });
 };
 
 // Export these functions so we can test them

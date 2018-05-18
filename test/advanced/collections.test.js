@@ -39,6 +39,7 @@ describe('Collections', function() {
           // before this block is run
           fs.readFile(fileToWriteTo, function(err, content) {
             var newFile = content.toString();
+            console.log('newFile is',newFile )
             expect(newFile).to.equal([
               'This is a file to read',
               'Yet another file',
